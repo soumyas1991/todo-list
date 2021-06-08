@@ -1,0 +1,11 @@
+.btn-primary{
+	background-color: #0a58ca;
+}
+.btn-danger{
+	/*margin: 20px 0px 0px 0px;*/
+	background-color: white;
+	color: red;
+}
+textarea{
+	height: 42px;
+}

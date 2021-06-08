@@ -1,0 +1,41 @@
+<div class="container">
+  <br>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">   
+  
+    <table class="table" formArrayName="tasks" *ngIf="!showMsg">
+      <tr>
+        <th colspan="2">Add Multiple Task and Description:</th>
+        <th width="150px"><button type="button" (click)="addTasks()" class="btn btn-primary">+</button></th>
+      </tr>
+      <tr *ngIf="show">
+      	<td>Task</td>
+      	<td>Description</td>
+      </tr>
+      <tr *ngFor="let tsk of tasks().controls; let i=index" [formGroupName]="i">
+        <td>
+            <input type="text" formControlName="task" class="form-control">
+        </td>
+        <td>
+            <!-- <input type="text" formControlName="description" class="form-control"> -->
+            <textarea formControlName="description" class="form-control"></textarea>
+        </td>
+        <td>
+            <button (click)="removeTask(i)" class="btn btn-danger">X</button>
+        </td>
+      </tr>
+    </table>
+   
+    <button type="submit" class="btn btn-success" *ngIf="show">Submit</button>
+    
+  </form>
+  <br>
+  <div class="row"  *ngIf="showMsg">
+    <div class="col-xs-12">
+      <p class="alert alert-success">
+          <strong>Tasks added successfully!</strong> 
+      </p>
+    </div>
+  </div>
+    
+  <br/>
+</div>
